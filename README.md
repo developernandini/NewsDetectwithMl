@@ -4,7 +4,7 @@ This project involves analyzing a dataset of news articles to determine their au
 Dataset Description
 The dataset consists of 2,096 entries and 12 columns. The columns are as follows:
 
-author: The author of the article.
+##author: The author of the article.
 published: The publication date and time of the article.
 title: The title of the article.
 text: The full text of the article.
@@ -64,11 +64,12 @@ cleaned_data['title_without_stopwords'].fillna("Unknown", inplace=True)
 cleaned_data['hasImage'].fillna(0.0, inplace=True)
 Verify the Data: Check for any remaining null values.
 
-python
-Copy code
-print(cleaned_data.isnull().sum())
-Analyze the Data: Use various visualization and statistical techniques to analyze the dataset.
+![image](https://github.com/developernandini/NewsDetectwithMl/assets/107920115/fcba53aa-b860-420a-bbe1-1f3ea88dc85b)
 
+The training score (BLUE) starts very high when the training data size is small. This is typical as models tend to perform well when the amount of data is limited because they can memorize it rather than generalize from it. As more data is introduced, the training score decreases slightly, suggesting that the model is finding it harder to fit to a larger dataset but then stabilizes. This high initial score combined with the stabilization suggests that the model has a good fit to the training data.
+The cross-validation score (GREEN) starts low when the training data size is small, indicating the model doesn't generalize well to unseen data at this point. However, as more data is added, the cross-validation score increases, suggesting that the model's ability to generalize is improving with more data. The upward trend of this line shows that additional data is beneficial to the model's performance on unseen data.
+The two lines appear to be converging, but they haven't fully converged within the range of data sizes shown on the graph. The shaded areas around each line represent the variance of the scores, with a smaller shaded area indicating lower variance. The cross-validation score line's shaded area is decreasing as more data is added, which is good as it indicates more stability in the model's generalization ability.
+Since the two lines are not converging closely, it might indicate that the model could still improve with more data, or with model tuning. There's no clear sign of severe overfitting (where the training score is significantly higher than the validation score) nor severe underfitting (where both scores are low), but there might be a slight tendency towards overfitting since the training score is consistently higher than the validation score.
 Conclusion
 This project aims to provide insights into the characteristics of news articles and their authenticity. By cleaning the data and preparing it for analysis, we can explore various patterns and trends that may help in distinguishing real news from fake news.
 
